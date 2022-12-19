@@ -1,0 +1,257 @@
+.nav{
+    background-color: rgb(66, 157, 232);
+    border-radius: 5px;
+    height: 45px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navLeft{
+    display: flex;
+}
+
+.navBtn {
+    margin-left: 10px;
+    margin-top: 8px;
+}
+
+.navTxt {
+    margin: 2px;
+    margin-top: 10px;
+    color: white;
+}
+
+.navMiddle{
+    flex: 0.8;
+}
+
+.navIcon{
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
+.topIcns {
+    height: 90px;
+    display: flex;
+    /* gap: 30px; */
+    justify-content: space-between;
+    
+}
+
+hr {
+    border: 2px solid black;
+}
+
+.topSpace{
+    flex: 0.3;
+}
+
+.btns{
+    display: flex;
+    
+    /* justify-content: space-between; */
+    flex-wrap: wrap;
+}
+
+.newBtn{
+
+}
+
+
+
+.quotationNo{
+    margin-top: 40px;
+    flex: 0.6;
+    margin-left: 5px;
+}
+
+.accDetailsCd{
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+
+}
+
+.accDetails{
+    display: flex;
+}
+
+.accDetails div{
+    margin-left: 30px;
+}
+
+.printBtn{
+    background-color: rgb(66, 157, 232);
+    border: 0.1px solid;
+    border-radius: 5px;
+    margin-right: 5px;
+    padding: 3px 20px;
+    border:solid rgb(66, 157, 232);
+    color: white;
+    transition: 0.2 all;
+}
+
+.printBtn:hover{
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.printBtn:active{
+    transform: scale(0.98);
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
+/* .printBtn:active:after{
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+} */
+
+.inputFields{
+    display: flex;
+    gap: 6px;
+}
+
+.leftField{
+    flex: 0.4;
+    
+}
+
+.rightField{
+    flex: 0.6;
+    
+}
+
+.leftCard{
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+}
+
+.rightCard{
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+}
+
+.cardFields div{
+    margin-bottom: 15px;
+}
+
+.loanProduct{
+    margin-left: 4px;
+}
+
+.searchBtn{
+    padding: 3px 10px;
+    border: 0.1px solid;
+    border-radius: 5px;
+    margin-left: 5px;
+}
+.searchBtn:active{
+    transform: scale(0.98);
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
+.searchBtn:hover{
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.currency{
+    margin-left: 34px;
+}
+
+.tenorRow{
+    display: flex;
+    border: 1px solid;
+    border-radius: 5px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    border: none;
+    
+}
+.tenorRow div{
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.intRow{
+    border: 1px solid;
+    border-radius: 5px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    border: none;
+    /* padding: 2px; */
+    padding-top: 4px;
+    padding-bottom: 1px;
+}
+.intRow div{
+    margin-left: 10px;
+
+}
+
+.moratinumRow{
+    display: flex;
+}
+.moratinumRow div{
+    margin-left: 8px;
+}
+
+.btm3{
+    border: 1px solid;
+    border-radius: 5px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    border: none;
+    padding-left: 4px;
+    padding-top: 4px;
+    padding-bottom: 1px;
+}
+
+.lastDayRow{
+    display: flex;
+}
+.lastDayRow div{
+    margin-left: 5px;
+}
+.btm3 div{
+    margin-left: 4px;
+}
+
+.dateField{
+    border: 1px solid;
+    border-radius: 5px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    border: none;
+    padding-left: 4px;
+    padding-top: 4px;
+    padding-bottom: 1px;
+}
+.dateField div{
+    margin-left: 6px;
+}
+
+.expiryDateRow{
+    display: flex;
+}
+
+.lastLast{
+    display: flex;
+    border: 1px solid;
+    border-radius: 5px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    border: none;
+}
+.lastLast div{
+    padding-left: 15px;
+}
+
+.footer{
+    height: 40px;
+    background-color: rgb(66, 157, 232);
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.txt{
+    color: white;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.version{
+    color: white;
+    padding-top: 10px;
+    padding-right: 10px;
+}
+
