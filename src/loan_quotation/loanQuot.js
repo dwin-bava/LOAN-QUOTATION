@@ -221,7 +221,7 @@ function Loan_quotation() {
                             </div>
                             <div className='intRow'>
                                 <div className='intType'>
-                                    <label style={{marginLeft:'37px'}}>
+                                    <label style={{marginLeft:'34px'}}>
                                     Interest Type
                                     <input type='text' style={{width:'60px', marginLeft:'10px', borderRadius:''}}/>
                                     </label>
@@ -237,7 +237,7 @@ function Loan_quotation() {
                                     <input type='text' disabled style={{width:'120px', marginLeft:'10px', borderRadius:''}}/>
                                 </div>
                                 <div className='intFreq'>
-                                    <label style={{marginLeft:'18px'}}>
+                                    <label style={{marginLeft:'16px'}}>
                                     Int. Repay Freq.
                                     <input type='text' style={{width:'60px', marginLeft:'10px', borderRadius:''}}/>
                                     </label>
@@ -255,7 +255,7 @@ function Loan_quotation() {
                                 </div>
                                 <div className='moratinumRow'>
                                     <div>
-                                        <label>
+                                        <label style={{marginLeft:'22px'}}>
                                         Moratorium Period
                                         <input type='text' style={{width:'120px', marginLeft:'10px', borderRadius:'', marginRight:''}}/>
                                         </label>
@@ -278,7 +278,7 @@ function Loan_quotation() {
                                 <div className='lastDayRow'>
                                     <div className='lastWorkingDay'>
                                         <form>
-                                        <label style={{marginLeft:'10px'}}>
+                                        <label style={{marginLeft:'12px'}}>
                                         Last Working Day
                                         </label>
                                         <select style={{width:'120px', marginLeft:'10px', borderRadius:'', height:'30px'}}>
@@ -328,7 +328,7 @@ function Loan_quotation() {
                             {/**Data Table */}
                             <Box
                                 sx={{
-                                height: "761px",
+                                height: "815px",
                                 width: "auto",
                                 // marginLeft: "20px",
 
