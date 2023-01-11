@@ -3,9 +3,11 @@ import "./loanQuot.css";
 import { BsCashStack } from "react-icons/bs";
 import {MdDelete} from "react-icons/md";
 import { FcDocument, FcCancel, FcCheckmark, FcApproval, FcPrint, FcCurrencyExchange } from "react-icons/fc";
-import {AiFillEye, AiFillStop, AiOutlinePoweroff, AiFillPrinter, AiOutlineClose, AiFillCloseSquare, AiOutlinePercentage} from "react-icons/ai";
+import {AiFillEye, AiFillStop, AiOutlinePoweroff, AiFillPrinter, AiOutlineClose, AiFillCloseSquare, AiOutlinePercentage, AiOutlineCheck} from "react-icons/ai";
 import {FiHelpCircle} from "react-icons/fi";
+import {GiCrossMark} from "react-icons/gi"
 import {IoExit} from "react-icons/io5";
+import {HiDocumentText} from "react-icons/hi"
 import {TbLetterA} from "react-icons/tb";
 import {RxDropdownMenu} from "react-icons/rx";
 import {TiCancel} from "react-icons/ti";
@@ -79,22 +81,22 @@ function Loan_quotation() {
             {/* <div className='empt'></div> */}
             <div className='btns'>
                 <div className='newBtn'>
-                <ButtonOption text="New" icon={<FcDocument size={20}/>}/>
+                <ButtonOption text="New" icon={<HiDocumentText size={20}/>}/>
                 </div>
                 <div className='deleteBtn'>
                 <ButtonOption text="Delete" icon={<MdDelete size={20} color=''/>}/>
                 </div> 
                 <div className='authorizeBtn'>
-                <ButtonOption text="Authorize" icon={<TbLetterA size={20} color='blue'/>}/>
+                <ButtonOption text="Authorize" icon={<TbLetterA size={20} color=''/>}/>
                 </div> 
                 <div className='viewBtn'>
                 <ButtonOption text="View" icon={<AiFillEye size={20}/>}/>
                 </div> 
                 <div className='okBtn'>
-                <ButtonOption text="Ok" icon={<FcCheckmark size={20} width='20'/>}/>
+                <ButtonOption text="Ok" icon={<AiOutlineCheck size={20} width='20'/>}/>
                 </div> 
                 <div className='cancelBtn'>
-                <ButtonOption text="Cancel" icon={<TiCancel size={20} color='red'/>}/>
+                <ButtonOption text="Cancel" icon={<GiCrossMark size={20} color=''/>}/>
                 </div>
                 <div className='rejectBtn'>
                 <ButtonOption text="Reject" icon={<AiFillStop size={20} color=''/>}/>
@@ -103,7 +105,7 @@ function Loan_quotation() {
                 <ButtonOption text="Help"   icon={<FiHelpCircle size={20}/>}/>
                 </div>
                 <div className='exitBtn'>
-                <ButtonOption text="Exit" icon={<AiOutlinePoweroff size={20} color='red'/>}/>
+                <ButtonOption text="Exit" icon={<AiOutlinePoweroff size={20} color=''/>}/>
                 </div>
             </div>
 
@@ -121,8 +123,8 @@ function Loan_quotation() {
         <div>
             <h6>Account Details</h6>
         </div>
-        <div className=''>
-            <Card className='accDetailsCd'>
+        <div className='' style={{backgroundColor:'grey'}}>
+            <Card className='accDetailsCd' style={{card: {backgroundColor: 'red'}}}>
                 <Card.Body className='accDetails'>
                     <div>
                         <label>
@@ -221,7 +223,7 @@ function Loan_quotation() {
                             </div>
                             <div className='intRow'>
                                 <div className='intType'>
-                                    <label style={{marginLeft:'34px'}}>
+                                    <label style={{marginLeft:'37px'}}>
                                     Interest Type
                                     <input type='text' style={{width:'60px', marginLeft:'10px', borderRadius:''}}/>
                                     </label>
@@ -237,7 +239,7 @@ function Loan_quotation() {
                                     <input type='text' disabled style={{width:'120px', marginLeft:'10px', borderRadius:''}}/>
                                 </div>
                                 <div className='intFreq'>
-                                    <label style={{marginLeft:'16px'}}>
+                                    <label style={{marginLeft:'18px'}}>
                                     Int. Repay Freq.
                                     <input type='text' style={{width:'60px', marginLeft:'10px', borderRadius:''}}/>
                                     </label>
@@ -255,7 +257,7 @@ function Loan_quotation() {
                                 </div>
                                 <div className='moratinumRow'>
                                     <div>
-                                        <label style={{marginLeft:'22px'}}>
+                                        <label style={{marginLeft:'28px'}}>
                                         Moratorium Period
                                         <input type='text' style={{width:'120px', marginLeft:'10px', borderRadius:'', marginRight:''}}/>
                                         </label>
@@ -278,7 +280,7 @@ function Loan_quotation() {
                                 <div className='lastDayRow'>
                                     <div className='lastWorkingDay'>
                                         <form>
-                                        <label style={{marginLeft:'12px'}}>
+                                        <label style={{marginLeft:'10px'}}>
                                         Last Working Day
                                         </label>
                                         <select style={{width:'120px', marginLeft:'10px', borderRadius:'', height:'30px'}}>
@@ -328,7 +330,7 @@ function Loan_quotation() {
                             {/**Data Table */}
                             <Box
                                 sx={{
-                                height: "815px",
+                                height: "813px",
                                 width: "auto",
                                 // marginLeft: "20px",
 
