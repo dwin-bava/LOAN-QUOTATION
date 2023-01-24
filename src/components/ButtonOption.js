@@ -6,7 +6,7 @@ function ButtonOption(props) {
     <div>
         <button className='btnCon' disabled={props.status}>
             <div>{props.icon}</div>
-            <div>{props.text}</div>
+            {/* <div>{props.text}</div> */}
         </button>
     </div>
   )

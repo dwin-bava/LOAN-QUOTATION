@@ -1,35 +1,36 @@
-import React from 'react'
+import React from 'react';
 import "./loanQuot.css";
-import { BsCashStack } from "react-icons/bs";
-import {MdDelete} from "react-icons/md";
-import { FcDocument, FcCancel, FcCheckmark, FcApproval, FcPrint, FcCurrencyExchange } from "react-icons/fc";
-import {AiFillEye, AiFillStop, AiOutlinePoweroff, AiFillPrinter, AiOutlineClose, AiFillCloseSquare, AiOutlinePercentage, AiOutlineCheck} from "react-icons/ai";
+import {MdDelete, MdOutlineManageSearch} from "react-icons/md";
+import {IoMdArrowDropdown} from "react-icons/io"
+import {FcCurrencyExchange } from "react-icons/fc";
+import {GrClose} from "react-icons/gr";
+import {AiFillEye, AiFillStop, AiOutlinePoweroff, AiFillPrinter, AiOutlinePercentage, AiOutlineCheck} from "react-icons/ai";
 import {FiHelpCircle} from "react-icons/fi";
-import {GiCrossMark} from "react-icons/gi"
-import {IoExit} from "react-icons/io5";
-import {HiDocumentText} from "react-icons/hi"
+import {GiCrossMark} from "react-icons/gi";
+import {FcSearch} from "react-icons/fc";
+import {HiDocumentText} from "react-icons/hi";
 import {TbLetterA} from "react-icons/tb";
-import {RxDropdownMenu} from "react-icons/rx";
-import {TiCancel} from "react-icons/ti";
-import Button from 'react-bootstrap/Button';
 import ButtonOption from '../components/ButtonOption';
-import { Card } from 'react-bootstrap';
+import {Card} from 'react-bootstrap';
 import Box from "@mui/material/Box";
-import { DataGrid, GridToolbar } from "@mui/x-data-grid";
+import {DataGrid, GridToolbar} from "@mui/x-data-grid";
+import Swal from 'sweetalert2';
+
+
 
 const columns = [
     {
       field: "SeqNo",
       headerName: "Seq No",
       type: "number",
-      width: 100,
+      width: 70,
       headerClassName: "super-app-theme--header",
     },
     {
       field: "DateDue",
       headerName: "Date Due",
       type: "date",
-      width: 100,
+      width: 130,
       editable: true,
       headerClassName: "super-app-theme--header",
     },
@@ -37,7 +38,7 @@ const columns = [
       field: "Principal",
       headerName: "Principal",
       type: "number",
-      width: 100,
+      width: 140,
       editable: true,
       headerClassName: "super-app-theme--header",
     },
@@ -45,7 +46,7 @@ const columns = [
       field: "Interest",
       headerName: "Interest",
       type: "number",
-      width: 100,
+      width: 140,
       editable: true,
       headerClassName: "super-app-theme--header",
     },
@@ -53,7 +54,7 @@ const columns = [
       field: "Payment",
       headerName: "Payment",
       type: "number",
-      width: 110,
+      width: 150,
       editable: true,
       headerClassName: "super-app-theme--header",
     },
@@ -63,22 +64,49 @@ const columns = [
     
   ];
 
-function Loan_quotation() {
+function LoanQuotation({handleClose}) {
+
+const close = () => {
+    Swal.fire({
+  title: 'Are you sure you want to Exit?',
+  text: "All data will be lost!",
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Yes Exit'
+}).then((result) => {
+  if (result.isConfirmed) {
+    handleClose()
+  }
+})
+}
+
+const okay = () => {
+   Swal.fire({
+//   position: 'top-end',
+  icon: 'success',
+  title: 'Saved',
+  showConfirmButton: false,
+  timer: 1000
+})
+}
+
+
   return (
     <div className='container'>
         <div className='nav'>
             <div className='navLeft'>
                 <div className='navBtn'><FcCurrencyExchange  size={35}/></div>
                 <div className='navTxt'>
-                    <h5><strong>Loan Quotation</strong></h5>
+                    <h5 className='loanText'><strong>Loan Quotation</strong></h5>
                 </div>
             </div>
             <div className='navMiddle'></div>
-            <div className='navIcon'><IoExit size={30} color='black'/></div>
+            <div className='navIcon' onClick={close}><GrClose size={25} /></div>
         </div>
         <div className='topIcns'>
-            <div className='topSpace'></div>
-            {/* <div className='empt'></div> */}
+            {/* <div className='topSpace'></div> */}
             <div className='btns'>
                 <div className='newBtn'>
                 <ButtonOption text="New" icon={<HiDocumentText size={20}/>}/>
@@ -92,7 +120,7 @@ function Loan_quotation() {
                 <div className='viewBtn'>
                 <ButtonOption text="View" icon={<AiFillEye size={20}/>}/>
                 </div> 
-                <div className='okBtn'>
+                <div className='okBtn' onClick={okay}>
                 <ButtonOption text="Ok" icon={<AiOutlineCheck size={20} width='20'/>}/>
                 </div> 
                 <div className='cancelBtn'>
@@ -104,186 +132,209 @@ function Loan_quotation() {
                 <div className='helpBtn'>
                 <ButtonOption text="Help"   icon={<FiHelpCircle size={20}/>}/>
                 </div>
-                <div className='exitBtn'>
+                <div className='exitBtn' onClick={close}>
                 <ButtonOption text="Exit" icon={<AiOutlinePoweroff size={20} color=''/>}/>
                 </div>
             </div>
 
             <div className='quotationNo'>
-                <label>
-                    Quotation No
-                    <input type='text' disabled style={{width:'100px', marginLeft:'10px', borderRadius:''}}/>
-                </label>
+                
+                    <label>
+                        Quotation No
+                    </label>
+                    {/* <br></br> */}
+                    <input type='text' disabled style={{width:'170px', marginLeft:'10px', borderRadius:'5px', border:'1.5px solid #b0b1b3', backgroundColor:'#f0f1f3'}}/>
+                
             </div>
+
 
 
 
         </div>
         <hr style={{color:'black', border:'1px solid black'}}></hr>
         <div>
-            <h6>Account Details</h6>
+            <h6 className='accDetText'>Account Details</h6>
         </div>
-        <div className='' style={{backgroundColor:'grey'}}>
-            <Card className='accDetailsCd' style={{card: {backgroundColor: 'red'}}}>
-                <Card.Body className='accDetails'>
+        <div className=''>
+            <Card className='accDetailsCd' style={{borderRadius:'10px', padding:'13px'}}>
+                <div className='accDetails'>
                     <div>
+
                         <label>
-                        Applicant Name
-                        <input type='text' style={{width:'110px', marginLeft:'10px', borderRadius:''}}/>
+                        Applicant Name*
                         </label>
+                        {/* <br></br> */}
+                        <input type='text' style={{width:'200px', marginLeft:'5px', borderRadius:'5px', border:'1.5px solid #b0b1b3'}}/>
+                        
                     </div>
                     <div>
                         <label>
                         Net Monthly income/Salary
-                        <input type='text' style={{width:'110px', marginLeft:'10px', borderRadius:''}}/>
                         </label>
+                        {/* <br></br> */}
+                        <input type='text' style={{width:'100px', marginLeft:'5px', borderRadius:'5px', border:'1.5px solid #b0b1b3'}}/>
                     </div>
                     <div>
                         <label>
                         Dept Service Ratio(DSR)
-                        <input type='text' style={{width:'80px', marginLeft:'10px', borderRadius:''}}/>
                         </label>
+                        {/* <br></br> */}
+                        <input type='text' style={{width:'100px', marginLeft:'5px', borderRadius:'5px', border:'1.5px solid #b0b1b3'}}/>
                     </div>
-                    <div>
+                    <div className='printP'>
                         <button className='printBtn'><strong>Print</strong></button>
                         <AiFillPrinter size={20}/>
                     </div>
-                </Card.Body>
+                </div>
             </Card>
         </div>
         <br></br>
         <div className='inputFields'>
             <div className='leftField'>
-                <Card className='leftCard'>
-                    <Card.Body>
+                {/* <Card className='leftCard'>
+                    <Card.Body> */}
                         <div className='cardFields'>
-                            <div className='dateField'>
-                                <div className='effectiveDate'>
-                                    <label style={{marginLeft:'48px'}}>
-                                    Effective Date
-                                    <input type='date' style={{width:'115px', marginLeft:'10px', borderRadius:'', color:'red'}}/>
+                            <Card className='dateField' style={{borderRadius:'15px', padding:'10px', marginBottom:'7px'}}>
+                                <div className='effectiveDate' style={{marginBottom:'15px'}}>
+                                    <label style={{marginLeft:'', width:'25%', textAlign:'right'}}>
+                                    Effective Date*
                                     </label>
+                                    {/* <br></br> */}
+                                    <input type='date' placeholder='choose date' style={{width:'280px', marginLeft:'10px', borderRadius:'5px', color:'black', border:'1.5px solid #b0b1b3', height:'30px'}}/>
                                 </div>
-                                <div className='loanProduct'>
-                                    <label style={{marginLeft:'53px'}}>
-                                    Loan Product
-                                    <input type='text' style={{width:'60px', marginLeft:'10px', borderRadius:''}}/>
+                                <div className='loanProduct' style={{marginBottom:'15px'}}>
+                                    <label style={{marginLeft:'', width:'25%', textAlign:'right'}}>
+                                    Loan Product*
                                     </label>
-                                    <button className='searchBtn'><RxDropdownMenu/></button>
-                                    <input type='text' disabled style={{width:'150px', marginLeft:'10px', borderRadius:''}}/>
+                                    {/* <br></br> */}
+                                    <input type='text' style={{width:'50px', marginLeft:'10px', borderRadius:'5px', border:'1.5px solid #b0b1b3'}}/>
+                                    <button className='searchBtn'><MdOutlineManageSearch color=''/></button>
+                                    <input type='text' disabled style={{width:'191px', marginLeft:'5px', borderRadius:'5px', backgroundColor:'#f0f1f3', border:'1.5px solid #b0b1b3'}}/>
                                 </div>
-                                <div className='currency'>
+                                <div className='currency' style={{marginBottom:'15px'}}>
                                     <form>
-                                        <label style={{marginLeft:'83px'}}>
-                                        Currency
+                                        <label style={{marginLeft:'', width:'25%', textAlign:'right'}}>
+                                        Currency*
                                         </label>
-                                        <select style={{width:'80px', marginLeft:'10px', borderRadius:'', height:'30px'}}>
+                                        {/* <br></br> */}
+                                        <select style={{width:'280px', marginLeft:'10px', borderRadius:'5px', height:'30px', border:'1.5px solid #b0b1b3'}}>
                                             <option>SLL</option>
                                             <option>USD</option>
                                             <option>GHC</option>
                                         </select>
                                     </form>
                                 </div>
-                                <div className='facilityAmount'>
-                                    <label style={{marginLeft:'38px'}}>
-                                    Facility Amount
-                                    <input type='text' style={{width:'100px', marginLeft:'10px', borderRadius:''}}/>
+                                <div className='facilityAmount' style={{marginBottom:'15px'}}>
+                                    <label style={{marginLeft:'', width:'25%', textAlign:'right'}}>
+                                    Facility Amount*
                                     </label>
+                                    {/* <br></br> */}
+                                    <input type='text' style={{width:'280px', marginLeft:'10px', borderRadius:'5px', border:'1.5px solid #b0b1b3'}}/>
                                 </div>
                                 <div className='interestRate'>
-                                    <label>
-                                    Interest Rate P.M/P.A
-                                    <input type='text' style={{width:'60px', marginLeft:'8px', borderRadius:''}}/>
-                                    <AiOutlinePercentage/>
-                                    <input type='text' style={{width:'60px', marginLeft:'20px', borderRadius:''}}/>
-                                    <AiOutlinePercentage/>
+                                    <label style={{width:'25%', textAlign:'right'}}>
+                                    Interest Rate
                                     </label>
+                                    {/* <br></br> */}
+                                    <input type='text' style={{width:'80px', marginLeft:'10px', borderRadius:'5px', border:'1.5px solid #b0b1b3'}}/>
+                                    <AiOutlinePercentage/> <span>P.M</span>
+                                    <input type='text' style={{width:'80px', marginLeft:'30px', borderRadius:'5px', border:'1.5px solid #b0b1b3'}}/>
+                                    <AiOutlinePercentage/> <span>P.A</span>
                                 </div>
-                            </div>
+                            </Card>
 
-                            <div className='tenorRow'>
-                                <div>
-                                    <label>
-                                    Tenor (In Months)
-                                    <input type='text' style={{width:'70px', marginLeft:'10px', borderRadius:''}}/>
+                            <Card className='tenorRow' style={{borderRadius:'15px', padding:'', marginBottom:'7px'}}>
+                                <div style={{marginBottom:'15px'}}>
+                                    <label style={{width:'30%', textAlign:'right'}}>
+                                    Tenor (In Months)*
                                     </label>
+                                    {/* <br></br> */}
+                                    <input type='text' style={{width:'260px', marginLeft:'10px', borderRadius:'5px', border:'1.5px solid #b0b1b3'}}/>
                                 </div>
-                                <div>
-                                    <form>
-                                        <label style={{marginLeft:'20px'}}>
+                                <div style={{marginBottom:'15px'}}>
+                                    {/* <form> */}
+                                        <label style={{marginLeft:'', width:'30%', textAlign:'right'}}>
                                         Apply Exempt Mths
                                         </label>
-                                        <select style={{width:'80px', marginLeft:'10px', borderRadius:'', height:'30px'}}>
+                                        {/* <br></br> */}
+                                        <select style={{width:'260px', marginLeft:'10px', borderRadius:'5px', height:'30px', border:'1.5px solid #b0b1b3'}}>
                                             <option>1</option>
                                             <option>2</option>
                                             <option>3</option>
                                         </select>
-                                    </form>
+                                    {/* </form> */}
                                 </div>
-                            </div>
-                            <div className='intRow'>
-                                <div className='intType'>
-                                    <label style={{marginLeft:'37px'}}>
+                            </Card>
+                            <Card className='intRow' style={{borderRadius:'15px', padding:'', marginBottom:'7px'}}>
+                                <div className='intType' style={{marginBottom:'15px'}}>
+                                    <label style={{marginLeft:'', width:'30%', textAlign:'right'}}>
                                     Interest Type
-                                    <input type='text' style={{width:'60px', marginLeft:'10px', borderRadius:''}}/>
                                     </label>
-                                    <button className='searchBtn'><RxDropdownMenu/></button>
-                                    <input type='text' disabled style={{width:'120px', marginLeft:'10px', borderRadius:''}}/>
+                                    {/* <br></br> */}
+                                    <input type='text' style={{width:'50px', marginLeft:'10px', borderRadius:'5px', border:'1.5px solid #b0b1b3'}}/>
+                                    <button className='searchBtn'><MdOutlineManageSearch color=''/></button>
+                                    <input type='text' disabled style={{width:'170px', marginLeft:'5px', borderRadius:'5px', backgroundColor:'#f0f1f3', border:'1.5px solid #b0b1b3'}}/>
                                 </div>
-                                <div className='prinFreq'>
-                                    <label>
+                                <div className='prinFreq' style={{marginBottom:'15px'}}>
+                                    <label style={{marginLeft:'', width:'30%', textAlign:'right'}}>
                                     Princ. Repay Freq.
-                                    <input type='text' style={{width:'60px', marginLeft:'10px', borderRadius:''}}/>
                                     </label>
-                                    <button className='searchBtn'><RxDropdownMenu/></button>
-                                    <input type='text' disabled style={{width:'120px', marginLeft:'10px', borderRadius:''}}/>
+                                    {/* <br></br> */}
+                                    <input type='text' style={{width:'50px', marginLeft:'10px', borderRadius:'5px', border:'1.5px solid #b0b1b3'}}/>
+                                    <button className='searchBtn'><MdOutlineManageSearch color=''/></button>
+                                    <input type='text' disabled style={{width:'170px', marginLeft:'5px', borderRadius:'5px', backgroundColor:'#f0f1f3', border:'1.5px solid #b0b1b3'}}/>
                                 </div>
                                 <div className='intFreq'>
-                                    <label style={{marginLeft:'18px'}}>
+                                    <label style={{marginLeft:'', width:'30%', textAlign:'right'}}>
                                     Int. Repay Freq.
-                                    <input type='text' style={{width:'60px', marginLeft:'10px', borderRadius:''}}/>
                                     </label>
-                                    <button className='searchBtn'><RxDropdownMenu/></button>
-                                    <input type='text' disabled style={{width:'120px', marginLeft:'10px', borderRadius:''}}/>
+                                    {/* <br></br> */}
+                                    <input type='text' style={{width:'50px', marginLeft:'10px', borderRadius:'5px', border:'1.5px solid #b0b1b3'}}/>
+                                    <button className='searchBtn'><MdOutlineManageSearch color=''/></button>
+                                    <input type='text' disabled style={{width:'170px', marginLeft:'5px', borderRadius:'5px', backgroundColor:'#f0f1f3', border:'1.5px solid #b0b1b3'}}/>
                                 </div>
-                            </div>
-                            <div className='btm3'>
-                                <div className='repayCount'>
-                                    <label>
+                            </Card>
+                            <Card className='btm3' style={{borderRadius:'15px', padding:'', marginBottom:'7px'}}>
+                                <div className='repayCount' style={{marginBottom:'15px'}}>
+                                    <label style={{marginLeft:'', width:'35%', textAlign:'right'}}>
                                         Princ./Int. Repay Count
-                                        <input type='text' disabled style={{width:'70px', marginLeft:'10px', borderRadius:''}}/>
-                                        <input type='text' disabled style={{width:'70px', marginLeft:'10px', borderRadius:''}}/>
                                     </label>
+                                    {/* <br></br> */}
+                                        <input type='text' disabled style={{width:'113px', marginLeft:'10px', borderRadius:'5px', backgroundColor:'#f0f1f3', border:'1.5px solid #b0b1b3'}}/>
+                                        <input type='text' disabled style={{width:'113px', marginLeft:'10px', borderRadius:'5px', backgroundColor:'#f0f1f3', border:'1.5px solid #b0b1b3'}}/>
                                 </div>
                                 <div className='moratinumRow'>
                                     <div>
-                                        <label style={{marginLeft:'28px'}}>
+                                        <label style={{marginLeft:'30px', width:'', textAlign:'right'}}>
                                         Moratorium Period
-                                        <input type='text' style={{width:'120px', marginLeft:'10px', borderRadius:'', marginRight:''}}/>
                                         </label>
+                                        {/* <br></br> */}
+                                        <input type='text' style={{width:'115px', marginLeft:'10px', borderRadius:'5px', marginRight:'', border:'1.5px solid #b0b1b3'}}/>
                                     </div>
-                                    <div>
+                                    <div style={{marginLeft:'10px', width:'', textAlign:''}}>
                                         <form>
-                                        <label style={{marginLeft:'20px'}}>
+                                        <label style={{marginLeft:''}}>
                                         With Int.
                                         </label>
-                                        <select style={{width:'80px', marginLeft:'10px', borderRadius:'', height:'30px'}}>
+                                        {/* <br></br> */}
+                                        <select style={{width:'50px', marginLeft:'5px', borderRadius:'5px', height:'30px', border:'1.5px solid #b0b1b3', marginRight:'20px'}}>
                                             <option>Yes</option>
                                             <option>No</option>
-                                            
                                         </select>
+                                            
                                     </form>
                                     </div>
                                 </div>
-                            </div>
-                            <div className='tenorRow'>
+                            </Card>
+                            <Card className='tenorRow' style={{borderRadius:'15px', padding:'', marginBottom:'7px'}}>
                                 <div className='lastDayRow'>
-                                    <div className='lastWorkingDay'>
+                                    <div className='lastWorkingDay' style={{marginBottom:'15px'}}>
                                         <form>
-                                        <label style={{marginLeft:'10px'}}>
+                                        <label style={{marginLeft:'', width:'32%', textAlign:'right'}}>
                                         Last Working Day
                                         </label>
-                                        <select style={{width:'120px', marginLeft:'10px', borderRadius:'', height:'30px'}}>
+                                        {/* <br></br> */}
+                                        <select style={{width:'250px', marginLeft:'10px', borderRadius:'5px', height:'30px', border:'1.5px solid #b0b1b3'}}>
                                             <option>Monday</option>
                                             <option>Tuesday</option>
                                             <option>Wednesday</option>
@@ -292,53 +343,57 @@ function Loan_quotation() {
                                         </select>
                                     </form>
                                     </div>
-                                    <div>
-                                        <label>
+                                    <div style={{marginBottom:'15px'}}>
+                                        <label style={{marginLeft:'', width:'32%', textAlign:'right'}}>
                                         Balloon Installment
-                                        <input type='text' style={{width:'90px', marginLeft:'10px', borderRadius:''}}/>
                                         </label>
+                                        {/* <br></br> */}
+                                        <input type='text' style={{width:'250px', marginLeft:'10px', borderRadius:'5px', border:'1.5px solid #b0b1b3'}}/>
                                     </div>
                                 </div>
-                            </div>
-                            
-                                <div className='lastLast'>
-                                    <div>
-                                        <label>
+                                <div className='lastLas'>
+                                    <div style={{marginBottom:'15px'}}>
+                                        <label style={{marginLeft:'', width:'32%', textAlign:'right'}}>
                                         First Repayment Date
-                                        <input type='text' disabled style={{width:'130px', marginLeft:'', borderRadius:''}}/>
                                         </label>
+                                        {/* <br></br> */}
+                                        <input type='text' disabled style={{width:'250px', marginLeft:'10px', borderRadius:'5px', backgroundColor:'#f0f1f3', border:'1.5px solid #b0b1b3'}}/>
                                     </div>
                                     <div>
-                                        <label>
+                                        <label style={{marginLeft:'', width:'32%', textAlign:'right'}}>
                                         Expiry Date
-                                        <input type='text' disabled style={{width:'130px', marginLeft:'', borderRadius:''}}/>
                                         </label>
+                                        {/* <br></br> */}
+                                        <input type='text' disabled style={{width:'250px', marginLeft:'10px', borderRadius:'5px', backgroundColor:'#f0f1f3', border:'1.5px solid #b0b1b3'}}/>
                                     </div>
                                 </div>
-                            
+                            </Card>
                         </div>
+                            
+                            
 
                         
                         
-                    </Card.Body>
-                </Card>
+                    {/* </Card.Body>
+                </Card> */}
             </div>
             <div className='rightField'>
-                <Card className='rightCard'>
-                    <Card.Body>
+                <Card className='rightCard' style={{borderRadius:'15px', padding:'7px'}}>
+                    <div>
                         <div>
                             {/**Data Table */}
                             <Box
                                 sx={{
-                                height: "813px",
+                                height: "755px",
                                 width: "auto",
+                                borderRadius:"5px",
                                 // marginLeft: "20px",
 
                                 "& .super-app-theme--header": {
                                     backgroundColor: "rgb(66, 157, 232)",
                                     color: "white",
-                                    fontStyle: "",
-                                    
+                                    fontWeight:"",
+                                    fontSize:"16px"
                                     
                                 },
                                 }}
@@ -353,7 +408,7 @@ function Loan_quotation() {
                             </Box>
                             
         </div>
-                    </Card.Body>
+                    </div>
                 </Card>
             </div>
 
@@ -361,10 +416,10 @@ function Loan_quotation() {
         <hr style={{color:'black', border:'1px solid black'}}></hr>
         <div className='footer'>
             <div className='txt'>
-                <h6><strong>All Mandatory Fields' Label are displayed in blue</strong></h6>
+                <h6 className='footText'><strong>All Mandatory Fields' Label are in Asterisks (*)</strong></h6>
             </div>
             <div className='version'>
-                <tt>version 0.05</tt>
+                <tt className='versionTxt'>version 0.05</tt>
             </div>
         </div>
 
@@ -375,7 +430,7 @@ function Loan_quotation() {
   )
 }
 
-export default Loan_quotation
+export default LoanQuotation
                                 
                                 
                                 

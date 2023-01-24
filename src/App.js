@@ -3,7 +3,8 @@ import React, {useState} from 'react';
 import './App.css';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import Loan_quotation from "./loan_quotation/loanQuot"
+import LoanQuotation from "./loan_quotation/loanQuot";
+
 
 function App() {
   const [show, setShow] = useState(false);
@@ -21,9 +22,9 @@ function App() {
         <Button variant="primary" onClick={handleShow}>
         Open
         </Button>
-        <Modal show={show} onHide={handleClose} size="xl">
+        <Modal show={show}  size="xl">
         
-        <Modal.Body><Loan_quotation/></Modal.Body>
+        <Modal.Body><LoanQuotation handleClose={handleClose}/></Modal.Body>
         
         </Modal>
 
