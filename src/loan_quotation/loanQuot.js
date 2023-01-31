@@ -96,7 +96,8 @@ const columns = [
         backgroundImage:"http://localhost:3000/assets/images/bg4.jpg",
         headerColor:"#00755b",
         buttonColor:"#00755b",
-        footerColor:"#00755b"
+        footerColor:"#00755b",
+        accTxtColor:"white"
     },
     theme5: {
         backgroundImage:"http://localhost:3000/assets/images/bg5.jpg",
