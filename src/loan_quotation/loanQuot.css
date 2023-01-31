@@ -9,12 +9,17 @@
 } */
 .modal-body{
     /* background-color: rgb(230, 235, 255); */
-    border-radius: 7px;
-    background-image: url(./images/back6.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
+    /* border-radius: 7px; */
+    /* background-image: url(./images/back6.jpg); */
+    /* background-repeat: no-repeat;
+    background-size: cover; */
     
    
+}
+
+.container{
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .nav{
@@ -32,12 +37,12 @@
 
 .navBtn {
     margin-left: 10px;
-    margin-top: 8px;
+    margin-top: 5px;
 }
 
 .navTxt {
     margin: 2px;
-    margin-top: 10px;
+    margin-top: 7px;
     color: white;
 }
 
@@ -46,12 +51,12 @@
 }
 
 .navIcon{
-    margin-top: 10px;
+    margin-top: 7px;
     margin-right: 5px;
 }
 
 .topIcns {
-    height: 60px;
+    height: 25px;
     display: flex;
     /* gap: 30px; */
     justify-content: space-between;
@@ -80,10 +85,9 @@ hr {
 
 
 .quotationNo{
-    margin-top: 20px;
     flex: 1;
     text-align: right;
-    margin-top: 40px;
+    margin-top: 10px;
     
 }
 
@@ -91,7 +95,7 @@ hr {
 .accDetailsCd{
     /* box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset; */
     /* box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px; */
-    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 9px;
     border-radius: 40px;
     /* background-color: transparent; */
     background-color: rgba(255, 255, 255, 0.8);
@@ -108,11 +112,10 @@ hr {
 
 .printBtn{
     background-color: rgb(66, 157, 232);
-    border: 0.1px solid;
     border-radius: 5px;
     margin-right: 5px;
-    padding: 3px 20px;
-    border:solid rgb(66, 157, 232);
+    padding: 5px 20px;
+    border: none;
     color: white;
     transition: 0.2 all;
     font-size: 13px;
@@ -180,11 +183,12 @@ hr {
 } */
 
 .searchBtn{
-    padding: 1px 5px;
-    border: 1.5px solid #b0b1b3;
+    padding: 2px 7px;
+    border: none;
     border-radius: 10px;
     margin-left: 5px;
-    background-color: #e2ecff;
+    background-color: rgb(66, 157, 232);
+    color: white;
 }
 .searchBtn:active{
     transform: scale(0.98);
@@ -229,7 +233,7 @@ hr {
 
 .moratinumRow{
     display: flex;
-    justify-content: space-between;
+    gap: 24px;
 }
 .moratinumRow div{
     /* margin-left: 8px; */
@@ -308,6 +312,7 @@ select{
     height: 40px;
     background-color: rgb(66, 157, 232);
     border-radius: 10px;
+    margin-top: 15px;
     display: flex;
     justify-content: space-between;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;

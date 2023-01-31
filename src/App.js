@@ -4,6 +4,7 @@ import './App.css';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import LoanQuotation from "./loan_quotation/loanQuot";
+import { object } from "./loan_quotation/loanQuot"
 
 
 function App() {
@@ -24,7 +25,7 @@ function App() {
         </Button>
         <Modal show={show}  size="xl">
         
-        <Modal.Body><LoanQuotation handleClose={handleClose}/></Modal.Body>
+        <Modal.Body style={{padding:'0px'}}><LoanQuotation handleClose={handleClose}/></Modal.Body>
         
         </Modal>
 
